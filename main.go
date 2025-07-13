@@ -10,9 +10,10 @@ import (
 	"strings"
 )
 
+var re = regexp.MustCompile(`(\d+)([-+*/])(\d+)`)
+
 // calculateExpression вычисляет результат математического выражения
 func calculateExpression(expression string) (string, error) {
-	re := regexp.MustCompile(`(\d+)([-+*/])(\d+)`)
 	match := re.FindStringSubmatch(expression)
 
 	if len(match) != 4 {
